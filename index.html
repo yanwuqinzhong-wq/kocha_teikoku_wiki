@@ -1435,7 +1435,14 @@ art("Relic教", {updated:"2026-07-18",title:"Relic教", kind:"宗教", categorie
 /* ===================== ページ描画 ===================== */
 const ALL_TITLES = Object.keys(A);
 
-/* ---- 閲覧数トラッキング（この端末のブラウザ内にのみ保存） ---- */
+/* ---- 閲覧数トラッキング ----
+   VIEW_API_BASEにCloudflare WorkerのURLを設定すると、全利用者共通の
+   全体集計になる（未設定の間はこの端末のブラウザ内だけの集計にフォールバック）。
+   設定手順は view-counter-worker.js を参照。
+   例: const VIEW_API_BASE = "https://kouchateikoku-wiki-views.xxxx.workers.dev";
+*/
+const VIEW_API_BASE = "https://broken-glade-9857kouchateikoku-wiki-views.kzmmks.workers.dev"; // デプロイ済みWorkerのURL
+
 function loadViewCounts(){
   try{ return JSON.parse(localStorage.getItem("exl_wiki_views") || "{}"); }
   catch(e){ return {}; }
@@ -1444,10 +1451,25 @@ function saveViewCounts(counts){
   try{ localStorage.setItem("exl_wiki_views", JSON.stringify(counts)); }
   catch(e){ /* ストレージが使えない環境では黙って無視 */ }
 }
-let VIEW_COUNTS = loadViewCounts();
+let VIEW_COUNTS = loadViewCounts(); // ローカル用フォールバック集計
+
 function trackView(id){
+  // ローカル集計は常に更新（オフライン時やAPI未設定時の表示用）
   VIEW_COUNTS[id] = (VIEW_COUNTS[id] || 0) + 1;
   saveViewCounts(VIEW_COUNTS);
+  // API側にも1閲覧として送信（失敗しても無視）
+  if(VIEW_API_BASE){
+    fetch(VIEW_API_BASE + "/hit?id=" + encodeURIComponent(id)).catch(()=>{});
+  }
+}
+
+async function fetchGlobalViewCounts(){
+  if(!VIEW_API_BASE) return null;
+  try{
+    const res = await fetch(VIEW_API_BASE + "/counts");
+    if(!res.ok) return null;
+    return await res.json();
+  }catch(e){ return null; }
 }
 
 function escapeHtml(s){
@@ -1629,16 +1651,19 @@ function renderCategoryPage(cat){
   attachLinkHandlers();
 }
 
-function renderPopular(){
+function renderRankedList(counts, isGlobal){
   const main = document.getElementById("main");
-  const ranked = Object.keys(VIEW_COUNTS)
+  const ranked = Object.keys(counts)
     .filter(id => A[id])
-    .map(id => ({id, count: VIEW_COUNTS[id]}))
+    .map(id => ({id, count: counts[id]}))
     .sort((a,b)=> b.count - a.count || A[a.id].title.localeCompare(A[b.id].title,'ja'))
     .slice(0, 50);
+  const noteText = isGlobal
+    ? "全利用者の閲覧回数を合算した全体集計です。"
+    : "全体集計サーバーが未設定のため、このブラウザでの閲覧回数のみを表示しています（他の利用者の分は含まれません）。";
   main.innerHTML = `
     <h1 class="article-title">閲覧数ランキング</h1>
-    <div class="lead"><p>このブラウザでこれまでに閲覧した記事を、閲覧回数の多い順に並べたものです。集計はお使いの端末・ブラウザの中だけに保存されるため、他の利用者の閲覧数とは合算されません。</p></div>
+    <div class="lead"><p>${noteText}</p></div>
     ${ranked.length ? `
     <ol style="font-size:14.5px;line-height:2.1;">
       ${ranked.map(r=>`<li><a href="#" data-link="${escapeHtml(r.id)}">${escapeHtml(A[r.id].title)}</a> <span style="color:var(--ink-soft);font-size:12px;">（${r.count}回閲覧）</span></li>`).join("")}
@@ -1648,6 +1673,17 @@ function renderPopular(){
   document.title = "閲覧数ランキング - 大紅茶帝国wiki";
   window.scrollTo(0,0);
   attachLinkHandlers();
+}
+
+async function renderPopular(){
+  const main = document.getElementById("main");
+  main.innerHTML = `<h1 class="article-title">閲覧数ランキング</h1><div class="lead"><p>集計を読み込み中…</p></div>`;
+  const global = await fetchGlobalViewCounts();
+  if(global){
+    renderRankedList(global, true);
+  } else {
+    renderRankedList(VIEW_COUNTS, false);
+  }
 }
 
 function renderRecent(){
