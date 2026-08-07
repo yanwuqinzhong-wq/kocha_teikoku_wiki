@@ -148,6 +148,93 @@
     .masthead h1{font-size:17px;}
     .masthead input[type=text]{width:110px;}
   }
+
+  /* ===== ゴッドフィールドカップ：試合感を出すための専用パーツ ===== */
+  .gf-hero{
+    position:relative;overflow:hidden;
+    background:linear-gradient(135deg,var(--tea-deep) 0%,var(--tea) 55%,#8a3a3a 100%);
+    color:#f8ecd8;border:1px solid var(--gold);border-radius:6px;
+    padding:20px 24px;margin:8px 0 22px;box-shadow:0 3px 12px rgba(40,20,10,.18);
+  }
+  .gf-hero::after{
+    content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;
+    background:radial-gradient(circle,rgba(255,255,255,.10),transparent 70%);
+  }
+  .gf-hero-eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#e8cf9a;}
+  .gf-hero-title{font-family:var(--serif);font-size:23px;line-height:1.4;margin:6px 0 10px;font-weight:600;}
+  .gf-hero-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:#efe2c8;}
+  .gf-hero-meta b{color:#fff;}
+  .gf-hero-badges{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;}
+  .gf-hero-badge{
+    background:rgba(255,255,255,.12);border:1px solid var(--gold);color:#f8ecd8;
+    font-size:11.5px;padding:3px 11px;border-radius:12px;letter-spacing:.02em;
+  }
+
+  .gf-speech{
+    position:relative;background:#fbf6ec;border-left:4px solid var(--gold);
+    padding:14px 18px 12px 40px;margin:16px 0 24px;border-radius:0 4px 4px 0;
+  }
+  .gf-speech .gf-mark{
+    position:absolute;left:10px;top:6px;font-size:36px;line-height:1;color:var(--gold);
+    opacity:.55;font-family:var(--serif);
+  }
+  .gf-speech p{margin:0 0 8px;color:#4a3b2a;font-style:italic;line-height:1.85;font-size:14.5px;}
+  .gf-speech-attr{margin:0;font-size:12.5px;color:var(--ink-soft);text-align:right;}
+
+  .gf-highlight{
+    background:#faf6ea;border:1px dashed var(--gold);border-radius:6px;
+    padding:12px 16px;margin:16px 0 22px;font-size:13.5px;line-height:1.8;color:#4a3b1f;
+  }
+  .gf-highlight b{color:var(--tea-deep);}
+
+  .gf-group{border:1px solid var(--rule);border-radius:6px;margin:16px 0 26px;overflow:hidden;background:#fffefb;}
+  .gf-group-head{
+    background:linear-gradient(90deg,var(--tea),var(--tea-deep));color:#f6ead6;
+    padding:9px 16px;display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:15.5px;
+  }
+  .gf-group-badge{
+    width:24px;height:24px;border-radius:50%;background:var(--gold);color:#3a2a06;
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex:none;
+  }
+  .gf-group-date{margin-left:auto;font-size:11px;color:#e6d7bc;font-family:var(--sans);font-weight:400;}
+
+  .gf-matches{padding:12px 16px 2px;}
+  .gf-match{display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px dashed #e3ddc9;font-size:13.5px;}
+  .gf-match:last-child{border-bottom:none;}
+  .gf-p{flex:1;min-width:0;}
+  .gf-p.left{text-align:right;}
+  .gf-p.right{text-align:left;}
+  .gf-p.win{font-weight:700;color:var(--tea-deep);}
+  .gf-score{min-width:30px;text-align:center;font-weight:700;padding:3px 7px;border-radius:4px;background:#f2ecd9;font-size:13px;flex:none;}
+  .gf-score.win{background:var(--gold);color:#3a2a06;}
+  .gf-vs{font-size:10px;color:var(--ink-soft);flex:none;padding:0 2px;}
+  .gf-unrecorded{font-size:12px;color:var(--ink-soft);font-style:italic;padding:5px 0 10px;text-align:center;}
+
+  .gf-standings{width:100%;border-collapse:collapse;font-size:13px;margin-top:0;}
+  .gf-standings th{background:#f2ecd9;text-align:left;padding:6px 10px;font-size:11.5px;color:var(--ink-soft);border-bottom:1px solid var(--rule);}
+  .gf-standings td{padding:6px 10px;border-bottom:1px solid #eee8d8;vertical-align:middle;}
+  .gf-standings tr:last-child td{border-bottom:none;}
+  .gf-rank{display:inline-flex;align-items:center;justify-content:center;width:19px;height:19px;border-radius:50%;font-size:10.5px;font-weight:700;margin-right:6px;flex:none;}
+  .gf-rank.r1{background:var(--gold);color:#3a2a06;}
+  .gf-rank.r2{background:#d8cdae;color:#3a2a06;}
+  .gf-rank.r3{background:#eee;color:#999;}
+  .gf-tag{display:inline-block;font-size:10px;padding:1px 7px;border-radius:8px;margin-left:6px;white-space:nowrap;}
+  .gf-tag.advance{background:#e5f2e0;color:#2e6b1f;border:1px solid #b6d9a8;}
+  .gf-tag.out{background:#f5e7e7;color:#8a3a3a;border:1px solid #dcb8b8;}
+  .gf-tag.withdraw{background:#eee;color:#777;border:1px solid #ccc;}
+  .gf-tag.pending{background:#eef2f8;color:#3a5a8a;border:1px solid #c3d3e8;}
+
+  .gf-bracket{background:#faf8f2;border:1px solid var(--rule);border-radius:6px;padding:16px 18px;margin:20px 0;}
+  .gf-bracket h3{margin:0 0 10px;font-family:var(--serif);font-size:15px;color:var(--tea);}
+  .gf-chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .gf-chip{background:#fff;border:1px solid var(--gold);border-radius:14px;padding:5px 12px 5px 6px;font-size:12.5px;display:flex;align-items:center;gap:6px;}
+  .gf-chip .grp{background:var(--tea);color:#fff;border-radius:50%;width:17px;height:17px;font-size:9.5px;display:flex;align-items:center;justify-content:center;flex:none;}
+  .gf-chip.note{border-style:dashed;color:var(--ink-soft);}
+
+  @media (max-width:800px){
+    .gf-match{flex-wrap:wrap;font-size:13px;}
+    .gf-hero{padding:16px 16px;}
+  }
 </style>
 </head>
 <body>
@@ -249,7 +336,9 @@ art("大紅茶帝国第二帝政", {updated:"2026-07-15",
     "## 対外情勢の変化（2026年7月）",
     "[[ヒトラー裏切り事件]]を機に紅茶皇帝は[[人狼オンライン国際協和連盟]]の廃止を決定し、[[アズ]]・[[ねぎら]]とともに構想していた新組織「[[国際調和連盟]]」が2026年7月15日の定款成立をもって発足した。同じ時期の7月8日には、建国直後の[[アトラスト共和国]]に対し[[3条条約]]による植民地化を迫る一幕もあったが（[[アトラスト植民地未遂事件]]）、3日後には一転して植民地化を見送り、対等な同盟条約「[[紅望同盟|紅望条約]]」を締結するという柔軟な対応を見せている。一方、[[七・一七国家機密流出事件]]を背景に属国[[どもたん国|自由ラガッジ民主国]]内で独立論議が高まり、最終的に同国の独立宣言が行われた。もっとも独立後も紅茶皇帝との全面対立は避ける方針が共有されており、事実上の従属関係は継続している。これにより帝国は、対外的な国際組織構築や新規同盟の締結を進める一方で、属国の自立化という新たな課題にも向き合う局面を迎えている。",
     "## 内憂の連鎖（2026年7月後半）",
-    "同月中旬以降も帝国は立て続けに内政上の試練に直面した。[[七・一六株価改革反対デモ]]・[[七・一七国家機密流出事件]]の混乱がなお尾を引く中、7月18日に予定されていた[[国際調和連盟]]第一回理事会は開催見送りとなり、7月21日には重鎮国民の処遇をめぐる[[酒樽の穴事件]]が発生するなど、対外拡張の勢いとは対照的に内政面での動揺が続いた時期として記録されている。"
+    "同月中旬以降も帝国は立て続けに内政上の試練に直面した。[[七・一六株価改革反対デモ]]・[[七・一七国家機密流出事件]]の混乱がなお尾を引く中、7月18日に予定されていた[[国際調和連盟]]第一回理事会は開催見送りとなり、7月21日には重鎮国民の処遇をめぐる[[酒樽の穴事件]]が発生するなど、対外拡張の勢いとは対照的に内政面での動揺が続いた時期として記録されている。",
+    "## 新興国家との交流とゴッドフィールドカップ（2026年7月31日～8月）",
+    "7月31日には[[アミュラ人民民主国]]が建国されると、紅茶皇帝は即日これを訪問し「[[紅観同盟]]」を締結した。植民地化交渉を経ない即日同盟という異例の速さは、これまでの拡張路線とは異なる新たな外交パターンとして注目されている。同盟国・友好国が着実に増加する中、8月4日には大紅茶帝国建国以来初となるスポーツ関連の国際大会「[[人狼onlineゴッドフィールドカップ|第一回人狼onlineゴッドフィールドカップ]]」が開催され、紅茶皇帝自らも選手として出場するなど、軍事・外交にとどまらない新たな国際交流の形が模索されている。"
   ]
 });
 
@@ -787,7 +876,7 @@ art("3条条約", {title:"3条条約", kind:"文書", categories:["法・条約"
   "この条約は[[ヒャッハー国]]の併合など、第二帝政期の勢力拡大の主要な手段として用いられた。",
   "3条条約はいずれも短く簡潔な条文でありながら、村の説明欄への明記・軍隊駐留の容認・政権樹立の義務化という3点によって、相手勢力の対外的な体裁・軍事的自立性・内政体制のすべてに帝国の影響を及ぼす構造になっている。この簡素さと実効性の高さが、2026年5月以降の帝国の急速な勢力拡大を支えた主要因の一つとされる。"]});
 
-art("条約一覧", {updated:"2026-07-26",title:"大紅茶帝国 条約一覧", kind:"一覧", categories:["法・条約"],
+art("条約一覧", {updated:"2026-07-31",title:"大紅茶帝国 条約一覧", kind:"一覧", categories:["法・条約"],
   lead:["大紅茶帝国がこれまでに締結してきた主要な条約・同盟の一覧。"],
   body:["- 2025/04/23　紅天平和条約締結",
   "- 2025/05/07　紅黎不可侵条約締結",
@@ -800,9 +889,10 @@ art("条約一覧", {updated:"2026-07-26",title:"大紅茶帝国 条約一覧", 
   "- 2026/07/11　[[紅望同盟]]締結（[[アトラスト共和国]]）",
   "- 2026/07/15　[[国際調和連盟]]定款成立",
   "- 2026/07/26　[[紅絵同盟]]成立（[[紅撲同盟]]が[[エクスエル共和国]]建国に伴い改称）",
+  "- 2026/07/31　[[紅観同盟]]締結（[[アミュラ人民民主国]]）",
   "上記に加え、[[3条条約]]や[[AZノート]]のように特定の国・勢力へ個別に提示される文書形式の条約も存在する。",
   "## 条約の性格の変化",
-  "初期の紅天平和条約・紅黎不可侵条約が相手勢力との衝突回避を目的とした消極的な条約であったのに対し、2026年6月以降に締結された紅魔同盟・紅撲同盟・紅宝同盟などは、いずれも軍事協力や共通の敵への対処を明記した積極的な同盟へと性格を変えている。この変化は、[[大紅茶帝国|大紅茶帝国第二帝政]]の対外方針が、単なる自国防衛から地域全体の秩序形成へと拡大していったことを反映しているとされる。"]});
+  "初期の紅天平和条約・紅黎不可侵条約が相手勢力との衝突回避を目的とした消極的な条約であったのに対し、2026年6月以降に締結された紅魔同盟・紅撲同盟・紅宝同盟などは、いずれも軍事協力や共通の敵への対処を明記した積極的な同盟へと性格を変えている。この変化は、[[大紅茶帝国|大紅茶帝国第二帝政]]の対外方針が、単なる自国防衛から地域全体の秩序形成へと拡大していったことを反映しているとされる。7月31日の[[紅観同盟]]締結に至っては、対抗すべき共通の敵の存在を前提としない、純粋な友好・同盟関係として結ばれた点で、それまでの条約群とはやや性格を異にする。"]});
 
 art("エロ村撲滅運動", {updated:"2026-06-27",title:"エロ村撲滅運動", kind:"社会運動", categories:["社会運動"],
   lead:["大紅茶帝国建国当初からの中心的スローガン。エロ村（風紀を乱すとされる村）の撲滅を掲げ、人員募集の柱となってきた。"],
@@ -1432,6 +1522,126 @@ art("Relic教", {updated:"2026-07-18",title:"Relic教", kind:"宗教", categorie
   lead:["**Relic教**は、[[輪廻転生]]を教祖とする宗教で、2026年7月18日に成立した。教えは「relicをやりまくれ」とされる。"],
   body:["教祖の[[輪廻転生]]は、[[七・一六株価改革反対デモ]]で株価改革への保証を求める側の中心人物としても記録されている人物である。Relic教は帝国内の宗教としては比較的新しく、[[黒幕教]]と並んで帝国史局が把握している数少ない宗教団体の一つとなっている。"]});
 
+/* ---------- 2026年7月31日～8月 追加分 ---------- */
+art("アミュラ人民民主国", {updated:"2026-07-31",title:"アミュラ人民民主国", kind:"国家", categories:["国家","同盟国"],
+  infobox:{subtitle:"", rows:[
+    ["建国者","[[ねこねこGYi]]（桜餅）"],
+    ["建国日","2026年7月31日"],
+    ["出自","[[アトラスト共和国]]系列の国民"],
+    ["同盟","[[大紅茶帝国]]（[[紅観同盟]]、即日締結）"],
+  ]},
+  lead:["**アミュラ人民民主国**は、2026年7月31日、[[ねこねこGYi]]（桜餅）によって建国された国家。建国当日のうちに[[大紅茶帝国]]の[[紅茶皇帝]]が訪問し、「[[紅観同盟]]」が即日締結された。"],
+  body:[
+    "## 建国と即日同盟",
+    "アミュラ人民民主国が建国されると、紅茶皇帝はこれを見るや即座に同国を訪問した。建国者の[[ねこねこGYi]]がもともと[[アトラスト共和国]]系列の国民であったつてを活かし、両者は速やかに交流を深め、訪問した当日のうちに同盟「[[紅観同盟]]」の締結に至っている。",
+    "## 位置づけ",
+    "[[アトラスト植民地未遂事件]]のように植民地化交渉を経ることなく、また[[3条条約]]のような一方的な条件提示を伴うこともなく、建国当日中に対等な同盟関係が成立した点は、それまでの大紅茶帝国の対外拡張パターンと比べても異例の早さとされる。この背景には、[[アトラスト共和国]]を介した既存のつながりが交渉を大きく円滑にしたことがあるとみられている。同国は同年8月4日開催の「[[人狼onlineゴッドフィールドカップ|第一回人狼onlineゴッドフィールドカップ]]」にも代表を送っている。"
+  ]});
+
+art("ねこねこGYi", {title:"ねこねこGYi（桜餅）", kind:"人物", categories:["人物","元首"],
+  infobox:{subtitle:"", rows:[
+    ["役職","[[アミュラ人民民主国]]建国者・元首"],
+    ["出自","[[アトラスト共和国]]系列の国民"],
+    ["条約","[[紅観同盟]]（2026/07/31締結）"],
+  ]},
+  lead:["**ねこねこGYi**（通称：桜餅）は、[[アトラスト共和国]]系列の国民であった人物。2026年7月31日に[[アミュラ人民民主国]]を建国し、同日のうちに[[大紅茶帝国]]と「[[紅観同盟]]」を締結した。"],
+  body:[
+    "建国以前は[[アトラスト共和国]]系列の国民であったとされ、このつながりを活かして紅茶皇帝との交流を円滑に進めたとみられている。建国当日という異例の早さで大紅茶帝国との同盟締結にこぎつけた手腕は、帝国史局でも新興国家元首としては迅速な部類として言及されている。",
+    "2026年8月4日開催の「[[人狼onlineゴッドフィールドカップ|第一回人狼onlineゴッドフィールドカップ]]」ではグループAに出場し、[[紅茶皇帝]]・[[やっと〜]]と対戦。同グループを勝ち点3で終えたが、トーナメント進出は棄権した。"
+  ]});
+
+art("紅観同盟", {updated:"2026-07-31",title:"紅観同盟", kind:"同盟", categories:["法・条約"],
+  infobox:{subtitle:"", rows:[
+    ["締結日","2026年7月31日"],
+    ["締約国","[[大紅茶帝国]]・[[アミュラ人民民主国]]"],
+    ["締結者","[[紅茶皇帝]]・[[ねこねこGYi]]"],
+  ]},
+  lead:["**紅観同盟**は、2026年7月31日、[[大紅茶帝国]]の[[紅茶皇帝]]と、建国したばかりの[[アミュラ人民民主国]]の[[ねこねこGYi]]との間で締結された同盟。"],
+  body:["アミュラ人民民主国の建国を見た紅茶皇帝が即座に同国を訪問し、建国者[[ねこねこGYi]]が[[アトラスト共和国]]系列の国民であったつてを活かして交流したうえ、即日締結に至った。植民地化交渉や条件提示を経ずに建国当日中で同盟が成立した点は、大紅茶帝国の対外関係の中でも特に迅速な事例とされる。"]});
+
+art("人狼onlineゴッドフィールドカップ", {updated:"2026-08-06",title:"第一回人狼onlineゴッドフィールドカップ", kind:"国際大会", categories:["国際組織"],
+  infobox:{subtitle:"", rows:[
+    ["開催","2026年8月4日～"],
+    ["主催","[[大紅茶帝国]]（[[紅茶皇帝]]）"],
+    ["競技","ゴッドフィールド"],
+    ["方式","グループリーグ（総当たり）→ 上位2名がトーナメント進出"],
+    ["賞","優勝賞金、ZOGランク認定"],
+  ]},
+  lead:["**第一回人狼onlineゴッドフィールドカップ**は、2026年8月4日に開幕した、[[大紅茶帝国]]主催によるゴッドフィールドの国際競技大会。大紅茶帝国建国以来初となる、スポーツ関連の文化的な国際試合として位置づけられる。"],
+  body:[
+    "@HTML@<div class=\"gf-hero\"><div class=\"gf-hero-eyebrow\">GOD FIELD CUP 2026 ・ 開幕</div><div class=\"gf-hero-title\">第一回人狼online<br>ゴッドフィールドカップ</div><div class=\"gf-hero-meta\"><span>📅 <b>2026年8月4日</b> 開幕</span><span>🏳 主催：<b>大紅茶帝国</b></span><span>👑 出場：<b>紅茶皇帝</b> ほか12名</span></div><div class=\"gf-hero-badges\"><span class=\"gf-hero-badge\">🏆 優勝賞金あり</span><span class=\"gf-hero-badge\">📈 ZOGランク認定</span><span class=\"gf-hero-badge\">🌍 建国後初の国際競技大会</span></div></div>",
+    "## 開会挨拶",
+    "@HTML@<div class=\"gf-speech\"><span class=\"gf-mark\">“</span><p>えー本日のような素晴らしい天気の日にこの大会を開催できることを心より嬉しく思います。優勝者には賞金も出す予定ですしZOGランクもかかった公の大会でございます。皆さん自身の全力を賭けて１戦１戦望んでいただきたいです。結びに皆さんの健闘を祈りまして、皇帝の挨拶とさせていただきます。</p><p class=\"gf-speech-attr\">―― <a href=\"#\" data-link=\"紅茶皇帝\">紅茶皇帝</a>、開会式にて</p></div>",
+    "大紅茶帝国建国以来初となる、スポーツ関連の文化的な国際試合として幕を開けた本大会には、[[紅茶皇帝]]自身も選手として名を連ねた。",
+    "## 大会方式",
+    "参加者は4グループに分かれ、グループ内で総当たり戦を行う。勝ち3点・相打ち1点・負け0点で勝ち点を競い、勝ち点が並んだ場合は再戦時の残りHP合計、それでも並ぶ場合は再戦により順位を決する。各グループの1位・2位がトーナメントに進出し、3位は敗退となる。トーナメントの組み合わせは、グループA〜Dの1位・2位から改めて抽選で決定される。",
+    "## 出場者（グループ分け）",
+    "- グループA：[[紅茶皇帝]]・[[ねこねこGYi]]・[[やっと〜]]",
+    "- グループB：Latte・ブッチ神父・ベル",
+    "- グループC：[[ども]]・国王桃・リズベリア",
+    "- グループD：ミッキー・[[輪廻転生]]・飛び石人生10世",
+    "## 見どころ",
+    "@HTML@<div class=\"gf-highlight\">開幕日となった8月4日は<b>グループA</b>のみが全試合を消化。<b>やっと〜</b>が2戦2勝・被弾ゼロで完全勝利を収め早々に首位進出を決めた一方、主催者自らコートに立った<b>紅茶皇帝</b>は3戦して勝ち点0という苦しい滑り出しに。他グループでは<b>ども</b>が国王桃を65-0で下し、本大会最多失点差を記録している。</div>",
+    "## グループA（8月4日）",
+    "@HTML@<div class=\"gf-group\"><div class=\"gf-group-head\"><span class=\"gf-group-badge\">A</span>グループA<span class=\"gf-group-date\">8月4日</span></div><div class=\"gf-matches\">"
+      + "<div class=\"gf-match\"><div class=\"gf-p left win\">やっと〜</div><div class=\"gf-score win\">50</div><div class=\"gf-vs\">−</div><div class=\"gf-score\">0</div><div class=\"gf-p right\">ねこねこGYi</div></div>"
+      + "<div class=\"gf-match\"><div class=\"gf-p left win\">やっと〜</div><div class=\"gf-score win\">50</div><div class=\"gf-vs\">−</div><div class=\"gf-score\">0</div><div class=\"gf-p right\"><a href=\"#\" data-link=\"紅茶皇帝\">紅茶皇帝</a></div></div>"
+      + "<div class=\"gf-match\"><div class=\"gf-p left win\"><a href=\"#\" data-link=\"ねこねこGYi\">ねこねこGYi</a></div><div class=\"gf-score win\">53</div><div class=\"gf-vs\">−</div><div class=\"gf-score\">0</div><div class=\"gf-p right\"><a href=\"#\" data-link=\"紅茶皇帝\">紅茶皇帝</a></div></div>"
+      + "</div><table class=\"gf-standings\"><tr><th>順位</th><th>選手</th><th>勝ち点</th><th>トーナメント</th></tr>"
+      + "<tr><td><span class=\"gf-rank r1\">1</span></td><td>やっと〜</td><td>6点</td><td><span class=\"gf-tag advance\">進出</span></td></tr>"
+      + "<tr><td><span class=\"gf-rank r2\">2</span></td><td>ねこねこGYi</td><td>3点</td><td><span class=\"gf-tag withdraw\">進出権を棄権</span></td></tr>"
+      + "<tr><td><span class=\"gf-rank r3\">3</span></td><td>紅茶皇帝</td><td>0点</td><td><span class=\"gf-tag advance\">繰り上げ進出</span></td></tr>"
+      + "</table></div>",
+    "3位ながら、2位のねこねこGYiがトーナメント進出を棄権したことにより、[[紅茶皇帝]]が繰り上げでトーナメント進出を決めるという波乱の展開となった。グループA全勝のやっと〜と合わせ、トーナメント進出者はやっと〜及び紅茶皇帝の2名。",
+    "## グループB",
+    "@HTML@<div class=\"gf-group\"><div class=\"gf-group-head\"><span class=\"gf-group-badge\">B</span>グループB<span class=\"gf-group-date\">8月4日・5日</span></div><div class=\"gf-matches\">"
+      + "<div class=\"gf-match\"><div class=\"gf-p left\">Latte</div><div class=\"gf-score\">0</div><div class=\"gf-vs\">−</div><div class=\"gf-score win\">46</div><div class=\"gf-p right win\">ベル</div></div>"
+      + "<div class=\"gf-match\"><div class=\"gf-p left win\">Latte</div><div class=\"gf-score win\">6</div><div class=\"gf-vs\">−</div><div class=\"gf-score\">0</div><div class=\"gf-p right\">ブッチ神父</div></div>"
+      + "<div class=\"gf-match\"><div class=\"gf-p left win\">ベル</div><div class=\"gf-score win\">38</div><div class=\"gf-vs\">−</div><div class=\"gf-score\">0</div><div class=\"gf-p right\">ブッチ神父</div></div>"
+      + "</div><table class=\"gf-standings\"><tr><th>順位</th><th>選手</th><th>勝ち点</th><th>トーナメント</th></tr>"
+      + "<tr><td><span class=\"gf-rank r1\">1</span></td><td>ベル</td><td>6点</td><td><span class=\"gf-tag advance\">進出</span></td></tr>"
+      + "<tr><td><span class=\"gf-rank r2\">2</span></td><td>Latte</td><td>3点</td><td><span class=\"gf-tag advance\">進出</span></td></tr>"
+      + "<tr><td><span class=\"gf-rank r3\">3</span></td><td>ブッチ神父</td><td>0点</td><td><span class=\"gf-tag out\">敗退</span></td></tr>"
+      + "</table></div>",
+    "全3戦を無失点で終えたベルが首位、Latteが2位で並んでトーナメント進出。ブッチ神父は3戦全敗・無得点での敗退となった。",
+    "## グループC",
+    "@HTML@<div class=\"gf-group\"><div class=\"gf-group-head\"><span class=\"gf-group-badge\">C</span>グループC<span class=\"gf-group-date\">8月5日</span></div><div class=\"gf-matches\">"
+      + "<div class=\"gf-match\"><div class=\"gf-p left win\">ども</div><div class=\"gf-score win\">65</div><div class=\"gf-vs\">−</div><div class=\"gf-score\">0</div><div class=\"gf-p right\">国王桃</div></div>"
+      + "<div class=\"gf-match\"><div class=\"gf-p left win\">ども</div><div class=\"gf-score win\">35</div><div class=\"gf-vs\">−</div><div class=\"gf-score\">0</div><div class=\"gf-p right\">リズベリア</div></div>"
+      + "<div class=\"gf-unrecorded\">国王桃 vs リズベリア ― 対戦は行われたが結果は記録に残っていない</div>"
+      + "</div><table class=\"gf-standings\"><tr><th>順位</th><th>選手</th><th>勝ち点</th><th>トーナメント</th></tr>"
+      + "<tr><td><span class=\"gf-rank r1\">1</span></td><td>ども</td><td>6点</td><td><span class=\"gf-tag advance\">進出</span></td></tr>"
+      + "<tr><td><span class=\"gf-rank r3\">-</span></td><td>国王桃</td><td>0点</td><td><span class=\"gf-tag pending\">2位は記録待ち</span></td></tr>"
+      + "<tr><td><span class=\"gf-rank r3\">-</span></td><td>リズベリア</td><td>0点</td><td><span class=\"gf-tag pending\">2位は記録待ち</span></td></tr>"
+      + "</table></div>",
+    "どもが2戦とも大差で圧倒し、最多失点差となる65-0を含む2連勝で早々に首位進出を確定させた。2位を争う国王桃とリズベリアの直接対決は結果が記録されておらず、2位の確定は保留となっている。",
+    "## グループD",
+    "@HTML@<div class=\"gf-group\"><div class=\"gf-group-head\"><span class=\"gf-group-badge\">D</span>グループD<span class=\"gf-group-date\">8月5日・6日</span></div><div class=\"gf-matches\">"
+      + "<div class=\"gf-match\"><div class=\"gf-p left\">輪廻転生</div><div class=\"gf-score\">0</div><div class=\"gf-vs\">−</div><div class=\"gf-score win\">13</div><div class=\"gf-p right win\">飛び石人生10世</div></div>"
+      + "<div class=\"gf-match\"><div class=\"gf-p left win\">輪廻転生</div><div class=\"gf-score win\">5</div><div class=\"gf-vs\">−</div><div class=\"gf-score\">0</div><div class=\"gf-p right\">ミッキー</div></div>"
+      + "<div class=\"gf-unrecorded\">ミッキー vs 飛び石人生10世 ― 対戦は行われたが結果は記録に残っていない</div>"
+      + "</div><table class=\"gf-standings\"><tr><th>順位</th><th>選手</th><th>勝ち点</th><th>トーナメント</th></tr>"
+      + "<tr><td><span class=\"gf-rank r1\">-</span></td><td>輪廻転生</td><td>3点</td><td><span class=\"gf-tag advance\">進出</span></td></tr>"
+      + "<tr><td><span class=\"gf-rank r2\">-</span></td><td>飛び石人生10世</td><td>3点</td><td><span class=\"gf-tag advance\">進出</span></td></tr>"
+      + "<tr><td><span class=\"gf-rank r3\">3</span></td><td>ミッキー</td><td>0点</td><td><span class=\"gf-tag out\">敗退</span></td></tr>"
+      + "</table></div>",
+    "輪廻転生と飛び石人生10世が勝ち点3で並び、ともにミッキーを退けてトーナメント進出。両者の直接対決は結果未記録のため、グループ内順位は確定していない。",
+    "## トーナメント進出者",
+    "@HTML@<div class=\"gf-bracket\"><h3>🏆 トーナメント進出（暫定）</h3><div class=\"gf-chips\">"
+      + "<span class=\"gf-chip\"><span class=\"grp\">A</span>やっと〜</span>"
+      + "<span class=\"gf-chip\"><span class=\"grp\">A</span>紅茶皇帝（繰り上げ）</span>"
+      + "<span class=\"gf-chip\"><span class=\"grp\">B</span>ベル</span>"
+      + "<span class=\"gf-chip\"><span class=\"grp\">B</span>Latte</span>"
+      + "<span class=\"gf-chip\"><span class=\"grp\">C</span>ども</span>"
+      + "<span class=\"gf-chip note\"><span class=\"grp\">C</span>国王桃 or リズベリア（記録待ち）</span>"
+      + "<span class=\"gf-chip\"><span class=\"grp\">D</span>輪廻転生</span>"
+      + "<span class=\"gf-chip\"><span class=\"grp\">D</span>飛び石人生10世</span>"
+      + "</div></div>",
+    "トーナメントの組み合わせ抽選は、以上の各グループ1位・2位（グループCのみ2位選手が記録待ち）が確定した時点で改めて実施される予定。",
+    "## 位置づけ",
+    "紅茶皇帝自らが選手として出場している点が特徴的であり、軍事・外交を中心にしてきた大紅茶帝国の対外関係の中で、文化・スポーツ面での新たな国際交流の形として記録されている。同年7月31日に建国・即日同盟した[[アミュラ人民民主国]]からも[[ねこねこGYi]]が出場するなど、新興の同盟国を巻き込んだ大会としても位置づけられる。"
+  ]});
+
 /* ===================== ページ描画 ===================== */
 const ALL_TITLES = Object.keys(A);
 
@@ -1492,6 +1702,7 @@ function inline(text){
 function renderBodyBlock(block){
   if(block.startsWith("## ")) return `<h2>${escapeHtml(block.slice(3))}</h2>`;
   if(block.startsWith("- ")) return null; // handled via grouping below
+  if(block.startsWith("@HTML@")) return block.slice(6); // 生HTML差し込み（試合カード等の特殊レイアウト用）
   return `<p>${inline(block)}</p>`;
 }
 
